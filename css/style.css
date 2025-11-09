@@ -1,0 +1,101 @@
+/* 🌈 Estilo geral do Smart Bite */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 🧾 Card central */
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* 🎨 Títulos */
+h1 {
+  color: #ff7e5f;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+.subtitle {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* ✏️ Campos de entrada */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border 0.2s;
+}
+input:focus {
+  border-color: #ff7e5f;
+  outline: none;
+}
+
+/* 🔘 Botões */
+button {
+  background: #ff7e5f;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #feb47b;
+}
+
+/* 🔗 Links */
+.link {
+  display: block;
+  margin-top: 15px;
+  color: #ff7e5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ⚠️ Mensagens */
+#msg {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}
+
+/* 📱 Responsivo */
+@media (max-width: 480px) {
+  body {
+    padding: 20px;
+  }
+  .card {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
