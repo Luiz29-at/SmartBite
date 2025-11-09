@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Bite 🍽️ – Cadastro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 380px;
+    }
+    h1 {
+      color: #185a9d;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #555;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    button {
+      background: #185a9d;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #43cea2;
+    }
+    .link {
+      display: block;
+      margin-top: 15px;
+      color: #185a9d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #msg {
+      margin-top: 10px;
+      color: red;
+    }
+  </style>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div class="card">
+    <h1>Cadastro Smart Bite</h1>
+    <p class="subtitle">Crie sua conta de restaurante</p>
+
+    <input type="text" id="nome" placeholder="Nome completo" />
+    <input type="text" id="cnpj" placeholder="CNPJ" />
+    <input type="tel" id="telefone" placeholder="Telefone" />
+    <input type="date" id="nascimento" placeholder="Data de nascimento" />
+    <input type="email" id="email" placeholder="E-mail" />
+    <input type="password" id="senha" placeholder="Senha" />
+
+    <button id="btnCadastro">Cadastrar 🍴</button>
+    <a href="index.html" class="link">Já tem conta? Entrar</a>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB83kRUQb-V8SgppM1m_idpqSSarVocvU0",
+      authDomain: "smart-bite-879c1.firebaseapp.com",
+      projectId: "smart-bite-879c1",
+      storageBucket: "smart-bite-879c1.firebasestorage.app",
+      messagingSenderId: "886687766123",
+      appId: "1:886687766123:web:8ab31d776e88671ade032e",
+      measurementId: "G-6DVX4M4HMS"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+    const msg = document.getElementById("msg");
+
+    document.getElementById("btnCadastro").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      auth.createUserWithEmailAndPassword(email, senha)
+        .then(() => msg.textContent = "✅ Cadastro realizado com sucesso!")
+        .catch(err => msg.textContent = "❌ " + err.message);
+    });
+  </script>
+</body>
+</html>
